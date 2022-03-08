@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>První pokusy</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+  </head>
+  <body onload="poNacteni()">
+    <h1>První pokusy</h1>
+
+    <div id="datum">...</div>
+
+    <h3>Kalkulačka</h3>
+
+    <input type="number" id="cislo1" value="5">
+
+    <select id="operace">
+      <option value="add">+</option>
+      <option value="subtract">-</option>
+    </select>  
+    
+    <input type="number" id="cislo2" value="3">
+
+    <button onclick="vypocti()">=</button>
+
+    <span id="vysledek"></span>
+    
+  </body>
+</html>
