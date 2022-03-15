@@ -13,6 +13,9 @@ function main(req, res) {
   } else if (req.url == "/script.js") {
     res.writeHead(200, { "Content-type": "text/javascript" });
     res.end(fs.readFileSync("script.js"));
+  } else if (req.url.startsWith("/obrazky/")) {
+    res.writeHead(200, { "Content-type": "image/png" });
+    res.end(fs.readFileSync(req.url.substr(1)));
   } else {
     res.writeHead(404);
     res.end();
