@@ -1,4 +1,16 @@
+async function ukazStavServeru() {
+  let url = window.location.href + "stav";
+  let response = await fetch(url);
+  let data = await response.json();
+  console.log(data);
+  
+  let s = data.nazev + " (" + data.verze + "), čas běhu " + data.casbehums + "ms.";
+  document.getElementById("stavserveru").innerHTML = s;
+}
+
 async function poNacteni() {
+  ukazStavServeru();
+  
   let url = "https://nodejs-3260.rostiapp.cz/date/";
   let response = await fetch(url);
   let data = await response.json();
@@ -13,7 +25,7 @@ async function vypocti() {
   let c2 = document.getElementById("cislo2").valueAsNumber;
   let op = document.getElementById("operace").value;
 
-  let url = "https://nodejs-3260.rostiapp.cz/tahaky/calc?number1=" + c1 + "&number2=" + c2 + "&operation=" + op;
+  let url = window.location.href + "kalkulacka?number1=" + c1 + "&number2=" + c2 + "&operation=" + op;
   let response = await fetch(url);
   let data = await response.json();
   console.log(data);
