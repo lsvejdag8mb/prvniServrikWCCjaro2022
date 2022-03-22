@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
-
+const kalkulacka = require("./api-kalkulacka.js").kalkulacka;
 
 let startTime = Date.now();
 
@@ -28,23 +28,7 @@ function main(req, res) {
     obj.casbehums = Date.now() - startTime;
     res.end(JSON.stringify(obj));
   } else if (req.url.startsWith("/kalkulacka")) {
-    let params = url.parse(req.url, true).query;
-    console.log(params);
-    
-    res.writeHead(200, { "Content-type": "application/json" });
-    let obj = {};
-    obj.nazev = "kalkulacka";
-    obj.num1 = parseInt(params.number1);
-    obj.num2 = parseInt(params.number2);
-    obj.operation = params.operation;
-    if (obj.operation == "add") {
-      obj.result = obj.num1 + obj.num2;
-    } else if (obj.operation == "subtract") {
-      obj.result = obj.num1 - obj.num2;
-    } else {
-      obj.result = "neznama operace";
-    }
-    res.end(JSON.stringify(obj));
+    kalkulacka(req, res);
   } else {
     res.writeHead(404);
     res.end();
