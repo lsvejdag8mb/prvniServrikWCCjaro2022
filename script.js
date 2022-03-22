@@ -1,3 +1,5 @@
+console.log(window.location.href);
+
 async function ukazStavServeru() {
   let url = window.location.href + "stav";
   let response = await fetch(url);
@@ -9,7 +11,7 @@ async function ukazStavServeru() {
 }
 
 async function poNacteni() {
-  ukazStavServeru();
+  setInterval(ukazStavServeru, 1000);
   
   let url = "https://nodejs-3260.rostiapp.cz/date/";
   let response = await fetch(url);
