@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 const kalkulacka = require("./api-kalkulacka.js").kalkulacka;
+const chat = require("./api-chat.js").chat;
 
 let startTime = Date.now();
 
@@ -29,6 +30,8 @@ function main(req, res) {
     res.end(JSON.stringify(obj));
   } else if (req.url.startsWith("/kalkulacka")) {
     kalkulacka(req, res);
+  } else if (req.url.startsWith("/chat")) {
+    chat(req, res);
   } else {
     res.writeHead(404);
     res.end();
