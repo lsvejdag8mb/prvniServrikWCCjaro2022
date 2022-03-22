@@ -1,5 +1,17 @@
 console.log(window.location.href);
 
+const OBLASTI = ["oblast_kalkulacka","oblast_obrazky","oblast_chat"];
+function ukazOblast() {
+  let oblast = document.getElementById("oblast").value;
+  for (let o of OBLASTI) {
+    if (o == oblast) {
+      document.getElementById(o).style.display = "block";
+    } else {
+      document.getElementById(o).style.display = "none";
+    }
+  } 
+}
+
 async function ukazStavServeru() {
   let url = window.location.href + "stav";
   let response = await fetch(url);
@@ -11,6 +23,9 @@ async function ukazStavServeru() {
 }
 
 async function poNacteni() {
+  document.getElementById("oblast").value = "oblast_chat";
+  ukazOblast();
+  
   setInterval(ukazStavServeru, 1000);
   
   let url = "https://nodejs-3260.rostiapp.cz/date/";

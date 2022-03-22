@@ -13,6 +13,14 @@
     <div id="stavserveru">...</div>
     <div id="datum">...</div>
 
+    <select id="oblast" onchange="ukazOblast()">
+      <option value="oblast_kalkulacka">kalkulačka</option>
+      <option value="oblast_obrazky">obrázky</option>
+      <option value="oblast_chat">chat</option>
+    </select>  
+
+    <div id="oblast_kalkulacka">
+    
     <h3>Kalkulačka</h3>
 
     <input type="number" id="cislo1" value="5">
@@ -28,10 +36,18 @@
 
     <span id="vysledek"></span>
 
-    <br><br>
+    </div>  
     
+    <div id="oblast_obrazky">
+      
     <img src="obrazky/mimon.png">
     <img src="obrazky/mimon2.png">
+
+    </div>  
+
+    <div id="oblast_chat">
+      tady bude chat...
+    </div>  
     
   </body>
 </html>
